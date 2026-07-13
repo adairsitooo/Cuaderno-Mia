@@ -1,109 +1,377 @@
 /* --- CONFIGURACIÓN GENERAL --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
 body, html {
-    width: 100%; height: 100%; overflow: hidden;
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden;
     background: linear-gradient(135deg, #fbcce7 0%, #ffd1dc 100%);
     font-family: 'Arial', sans-serif;
 }
 
 .pantalla-contenedor {
-    position: relative; width: 100%; height: 100%;
-    display: flex; justify-content: center; align-items: center;
+    position: relative; 
+    width: 100%; 
+    height: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 }
 
-/* --- CUADERNO --- */
+/* --- CUADERNO PREMIUM --- */
 .cuaderno {
-    position: absolute; width: 90%; max-width: 450px; height: 85vh;
-    background: #fafafa; border-radius: 4px 16px 16px 4px;
-    padding: 25px 20px 25px 45px; display: flex; flex-direction: column;
+    position: absolute; 
+    width: 92%; 
+    max-width: 440px; 
+    height: 85vh;
+    background: #fdfdfd; 
+    border-radius: 4px 20px 20px 4px;
+    padding: 30px 20px 25px 45px; 
+    display: flex; 
+    flex-direction: column;
     z-index: 2;
     transition: transform 1.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
-    box-shadow: -5px 0px 0px #e0e0e0, 14px 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 
+        -5px 0px 0px #e4e4e4,
+        4px 4px 0px #fff,
+        5px 5px 0px #e0e0e0,
+        9px 9px 0px #fff,
+        10px 10px 0px #e0e0e0,
+        16px 20px 35px rgba(0, 0, 0, 0.12);
 }
 
 .cuaderno.desplazar-arriba {
-    transform: translateY(-140vh); opacity: 0; pointer-events: none;
+    transform: translateY(-140vh); 
+    opacity: 0; 
+    pointer-events: none;
 }
 
-/* ESPIRAL */
+/* ESPIRAL DE ORO */
 .espiral-conector {
-    position: absolute; left: 12px; top: 5%; height: 90%;
-    display: flex; flex-direction: column; justify-content: space-between; z-index: 5;
+    position: absolute; 
+    left: 14px; 
+    top: 6%; 
+    height: 88%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    z-index: 5;
 }
-.anillo { width: 18px; height: 10px; background: #d6d6d6; border-radius: 5px; }
+.anillo { 
+    width: 22px; 
+    height: 11px; 
+    background: linear-gradient(to bottom, #bf953f 0%, #fcf6ba 30%, #b38728 60%, #fbf5b7 80%, #aa771c 100%);
+    border-radius: 6px; 
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.25);
+}
 
-/* TÍTULO REVISTA */
+/* TÍTULO ESTILO REVISTA RECORTE */
 .titulo-revista {
-    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-    gap: 4px; margin-bottom: 15px; width: 100%; max-width: 360px;
-    margin-left: auto; margin-right: auto;
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+    gap: 5px; 
+    margin-bottom: 20px; 
+    width: 100%; 
+    max-width: 360px;
+    margin-left: auto; 
+    margin-right: auto;
 }
-.letra-box { display: inline-block; background: #ffffff; padding: 1.5px; box-shadow: 1.5px 2px 4px rgba(0,0,0,0.2); }
-.letra-box img { display: block; width: 22px; height: 28px; object-fit: contain; }
+.letra-box { 
+    display: inline-block; 
+    background: #ffffff; 
+    padding: 2px; 
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.15); 
+}
+.letra-box img { display: block; width: 24px; height: 30px; object-fit: contain; }
 
-/* BOTÓN INICIO */
 #btn-comenzar {
-    background: #ff6584; color: white; border: none; padding: 10px 20px;
-    font-size: 1.2rem; border-radius: 25px; cursor: pointer;
-    margin: 10px auto; display: block; z-index: 10;
+    background: linear-gradient(135deg, #ff6584 0%, #ff4b72 100%);
+    color: white; 
+    border: none; 
+    padding: 12px 28px;
+    font-size: 1.3rem; 
+    border-radius: 50px; 
+    cursor: pointer;
+    margin: 10px auto; 
+    display: block; 
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(255, 101, 132, 0.4);
 }
 
-/* HOJA CUADERNO (AJUSTADA A RENGLONES) */
+/* --- TEXTO INTACTO (CONSERVA TU ALINEACIÓN PERFECTA) --- */
 .hoja-cuaderno {
-    flex: 1; position: relative;
-    background: linear-gradient(#cce0f5 1px, transparent 1px);
-    background-size: 100% 26px; /* Altura de cada línea */
-    overflow-y: auto; padding: 0 10px 10px 55px; /* Padding izquierdo amplio */
+    flex: 1; 
+    position: relative;
+    background: linear-gradient(rgba(190, 215, 240, 0.75) 1px, transparent 1px);
+    background-size: 100% 32px; 
+    background-position: 0 27px; 
+    overflow-y: auto; 
+    padding: 0px 10px 10px 55px;
 }
 
 .linea-margen-rojo {
-    position: absolute; top: 0; left: 40px; width: 2px; height: 100%;
-    background-color: #ff9e9e; z-index: 1; pointer-events: none;
+    position: absolute; 
+    top: 0; 
+    left: 42px; 
+    width: 1.5px; 
+    height: 100%;
+    background-color: rgba(255, 140, 140, 0.7); 
+    z-index: 1; 
 }
 
 .texto-lapiz {
-    font-family: 'Caveat', cursive; font-size: 1.6rem;
-    color: #4e5254; position: relative; z-index: 3;
-    line-height: 26px; /* DEBE ser igual a background-size */
-    white-space: pre-wrap; word-wrap: break-word;
-    width: 100%; padding-top: 1px;
+    font-family: 'Caveat', cursive; 
+    font-size: 1.75rem; 
+    color: #3a3d3f; 
+    position: relative; 
+    z-index: 3;
+    line-height: 32px; 
+    text-align: left;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+    margin-top: 5px; 
 }
 
-/* SECCIÓN PASTEL (FORMA CORREGIDA) */
+/* --- SECCIÓN PASTEL --- */
 .oculto { display: none !important; }
 
 #seccion-pastel {
-    position: absolute; width: 100%; height: 100%;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    opacity: 0; transition: opacity 1.5s ease;
+    position: absolute; 
+    width: 100%; 
+    height: 100%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    opacity: 0; 
+    transition: opacity 1.5s ease;
     background: linear-gradient(135deg, #fbcce7 0%, #ffd1dc 100%);
     pointer-events: none;
 }
 
 #seccion-pastel.mostrar {
-    display: flex !important; opacity: 1; z-index: 10; pointer-events: auto;
+    display: flex !important; 
+    opacity: 1; 
+    z-index: 10; 
+    pointer-events: auto;
 }
 
 .mensaje-final {
-    font-family: 'Caveat', cursive; font-size: 2.8rem; color: #FFFFFF;
-    margin-bottom: 20px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-family: 'Caveat', cursive; 
+    font-size: 3.2rem; 
+    color: #FFFFFF;
+    margin-bottom: 35px; 
+    font-weight: bold; 
+    text-shadow: 2px 3px 8px rgba(0,0,0,0.15);
 }
 
 .pastel-contenedor { 
-    position: relative; width: 200px; height: 180px; 
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-end; 
+    position: relative; 
+    width: 340px; 
+    height: 320px; 
+    display: flex; 
+    flex-direction: column-reverse; 
+    align-items: center; 
+    justify-content: flex-start; 
 }
 
-/* Plato y Pastel estructurado */
-.plato { width: 220px; height: 20px; background: #e0e0e0; border-radius: 50%; z-index: 1; margin-top: 10px; }
+.plato { display: none !important; }
+
+/* PISO INFERIOR BASE (Curvatura superior añadida para eliminar bordes rectos) */
 .piso-base { 
-    width: 180px; height: 100px; background: #ff6f91; 
-    border-radius: 20px 20px 80px 80px; z-index: 2; margin-bottom: -10px; 
+    position: relative;
+    width: 250px; 
+    height: 100px; 
+    z-index: 2; 
+    margin-bottom: 20px;
+    /* 125px horizontal / El primer par (16px) suaviza la parte superior eliminando esquinas sueltas */
+    border-radius: 125px 125px 125px 125px / 16px 16px 35px 35px;
+    overflow: hidden; 
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
-.vela-nueva { width: 8px; height: 40px; background: #4da6ff; z-index: 3; }
-.flama-nueva { width: 12px; height: 18px; background: orange; border-radius: 50%; margin-top: -15px; }
 
-.imagen-borde { position: absolute; bottom: 20px; width: 70px; height: 70px; z-index: 20; }
-.oso-posicion { left: -40px; }
-.regalo-posicion { right: -40px; }
+.cuerpo-abajo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: 
+        radial-gradient(circle at 12% 75%, #593119 4px, transparent 5px),
+        radial-gradient(circle at 28% 85%, #593119 4.5px, transparent 5.5px),
+        radial-gradient(circle at 48% 72%, #593119 4px, transparent 5px),
+        radial-gradient(circle at 70% 88%, #593119 4.5px, transparent 5.5px),
+        radial-gradient(circle at 86% 76%, #593119 4px, transparent 5px),
+        linear-gradient(to right, #cf986d 0%, #f7c094 25%, #ffe6cf 50%, #f7c094 75%, #cf986d 100%);
+}
+
+.tapa-abajo {
+    position: absolute;
+    width: 100%;
+    height: 32px;
+    top: 0;
+    background: radial-gradient(ellipse at 40% 40%, #542512 0%, #3d1c0c 80%, #230f06 100%);
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.goteo-abajo {
+    position: absolute;
+    width: 100%;
+    height: 55px;
+    background: linear-gradient(to right, #341507 0%, #4e2512 30%, #663318 50%, #4e2512 70%, #341507 100%);
+    top: 12px; 
+    z-index: 4;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 65%, 93% 85%, 86% 65%, 79% 95%, 72% 65%, 64% 90%, 55% 62%, 48% 98%, 41% 65%, 33% 88%, 25% 60%, 17% 94%, 9% 65%, 0% 85%);
+}
+
+/* PISO SUPERIOR (Curvatura superior añadida para eliminar bordes rectos) */
+.piso-alto {
+    position: relative;
+    width: 176px; 
+    height: 80px; 
+    z-index: 5; 
+    margin-bottom: -16px; 
+    /* 88px horizontal / 12px vertical arriba elimina imperfecciones laterales */
+    border-radius: 88px 88px 88px 88px / 12px 12px 24px 24px;
+    overflow: hidden;
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.cuerpo-arriba {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background: 
+        radial-gradient(circle at 15% 70%, #593119 4px, transparent 5px),
+        radial-gradient(circle at 40% 82%, #593119 4.5px, transparent 5.5px),
+        radial-gradient(circle at 62% 68%, #593119 4px, transparent 5px),
+        radial-gradient(circle at 82% 80%, #593119 4.5px, transparent 5.5px),
+        linear-gradient(to right, #cf986d 0%, #f7c094 25%, #ffe6cf 50%, #f7c094 75%, #cf986d 100%);
+}
+
+.tapa-arriba {
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    top: 0;
+    background: radial-gradient(ellipse at 40% 40%, #542512 0%, #3d1c0c 75%, #230f06 100%);
+    border-radius: 50%;
+    z-index: 6;
+}
+
+.decoracion-crema {
+    position: absolute;
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(to right, #341507 0%, #4e2512 30%, #663318 50%, #4e2512 70%, #341507 100%);
+    top: 10px;
+    z-index: 7;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 65%, 92% 85%, 84% 65%, 75% 95%, 66% 60%, 55% 90%, 45% 65%, 33% 85%, 22% 60%, 12% 90%, 0% 65%);
+}
+
+/* VELAS (Regresadas arriba a su lugar perfecto) */
+.vela-nueva { 
+    position: relative;
+    width: 11px; 
+    height: 52px; 
+    background: repeating-linear-gradient(45deg, #fca951, #fca951 6px, #ffffff 6px, #ffffff 12px);
+    z-index: 10; 
+    margin-bottom: -4px; 
+    border-radius: 2px;
+}
+
+.vela-nueva::before {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 52px;
+    background: repeating-linear-gradient(45deg, #fca951, #fca951 6px, #ffffff 6px, #ffffff 12px);
+    left: -35px;
+    top: 4px; 
+    border-radius: 2px;
+}
+
+.vela-nueva::after {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 52px;
+    background: repeating-linear-gradient(45deg, #fca951, #fca951 6px, #ffffff 6px, #ffffff 12px);
+    right: -35px;
+    top: 4px; 
+    border-radius: 2px;
+}
+
+/* LLAMAS (Calibradas perfectamente con el tope de cada vela) */
+.flama-nueva { 
+    position: absolute;
+    width: 15px; 
+    height: 26px; 
+    background: radial-gradient(circle at 50% 80%, #ffffff 10%, #ffeb99 30%, #ff9e00 70%, #ff3c00 100%); 
+    border-radius: 50% 50% 20% 20%; 
+    top: -28px; 
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px rgba(255,158,0,0.6);
+    animation: vaivenFlama 0.6s infinite alternate ease-in-out;
+}
+
+/* La llama izquierda baja 4px para unirse a su vela */
+.flama-nueva::before {
+    content: '';
+    position: absolute;
+    width: 15px; 
+    height: 26px; 
+    background: radial-gradient(circle at 50% 80%, #ffffff 10%, #ffeb99 30%, #ff9e00 70%, #ff3c00 100%); 
+    border-radius: 50% 50% 20% 20%; 
+    left: -35px;
+    top: 4px; 
+    box-shadow: 0 0 15px rgba(255,158,0,0.6);
+}
+
+/* La llama derecha baja 4px para unirse a su vela */
+.flama-nueva::after {
+    content: '';
+    position: absolute;
+    width: 15px; 
+    height: 26px; 
+    background: radial-gradient(circle at 50% 80%, #ffffff 10%, #ffeb99 30%, #ff9e00 70%, #ff3c00 100%); 
+    border-radius: 50% 50% 20% 20%; 
+    right: -35px;
+    top: 4px; 
+    box-shadow: 0 0 15px rgba(255,158,0,0.6);
+}
+
+@keyframes vaivenFlama {
+    0% { transform: translateX(-50%) scale(0.93) rotate(-1deg); }
+    100% { transform: translateX(-50%) scale(1.07) rotate(2deg); }
+}
+
+/* --- DECORACIONES COMPLEMENTARIAS --- */
+.imagen-borde { 
+    position: absolute; 
+    bottom: 12px; 
+    z-index: 20; 
+    filter: drop-shadow(4px 5px 8px rgba(0,0,0,0.15));
+}
+
+.oso-posicion { 
+    width: 125px;       
+    height: 125px;
+    left: -45px; 
+}
+
+.regalo-posicion { 
+    width: 95px;        
+    height: 95px;
+    right: -35px; 
+}
