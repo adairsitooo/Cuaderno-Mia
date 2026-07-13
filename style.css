@@ -72,45 +72,49 @@ body, html {
     box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
 }
 
-/* --- TÍTULO DE IMÁGENES DE REVISTA (REALISTAS) --- */
+/* --- TÍTULO DE IMÁGENES DE REVISTA CORREGIDO --- */
 .titulo-revista {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     margin-bottom: 15px;
-    padding: 8px;
-    background: rgba(0, 0, 0, 0.03);
-    border-radius: 8px;
+    padding: 4px;
+    background: transparent; /* Eliminado el cuadro gris de fondo */
+    border-radius: 0;
+    width: 100%;
+    max-width: 360px; /* Evita que se desorganice en pantallas compactas */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .espacio-vacio {
-    width: 14px;
+    width: 10px; /* Separación prudente entre palabras */
 }
 
-/* Contenedores de los recortes de papel */
+/* Contenedores de los recortes de papel individuales */
 .letra-box {
     display: inline-block;
     background: #ffffff;
-    padding: 2px;
-    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.25); /* Alza la imagen del papel */
-    border: 1px solid rgba(0,0,0,0.08);
+    padding: 1.5px;
+    box-shadow: 1.5px 2px 4px rgba(0, 0, 0, 0.2); /* Alza la imagen del papel */
+    border: 1px solid rgba(0,0,0,0.06);
 }
 
 .letra-box img {
     display: block;
-    width: 26px;  /* Tamaño ideal para pantalla de celular y PC */
-    height: 32px;
-    object-fit: cover;
+    width: 22px; /* Tamaño ideal y uniforme para que no se desordene */
+    height: 28px;
+    object-fit: contain; /* Ajusta armónicamente el contenido sin estirar las letras */
 }
 
 /* Rotaciones e inclinaciones aleatorias para realismo físico */
-.r1 { transform: rotate(-6deg) translateY(-1px); }
-.r2 { transform: rotate(5deg) translateY(2px); }
-.r3 { transform: rotate(-3deg) translateY(1px); }
-.r4 { transform: rotate(7deg) translateY(-2px); }
-.r5 { transform: rotate(-4deg) translateY(0px); }
+.r1 { transform: rotate(-5deg) translateY(-1px); }
+.r2 { transform: rotate(4deg) translateY(1px); }
+.r3 { transform: rotate(-3deg) translateY(0px); }
+.r4 { transform: rotate(5deg) translateY(-1px); }
+.r5 { transform: rotate(-4deg) translateY(1px); }
 
 /* --- BOTÓN --- */
 #btn-comenzar {
@@ -132,7 +136,7 @@ body, html {
     transform: scale(1.05);
 }
 
-/* --- HOJA DE CUADERNO ESCOLAR --- */
+/* --- HOJA DE CUADERNO ESCOLAR CORREGIDA --- */
 .hoja-cuaderno {
     flex: 1;
     position: relative;
@@ -146,13 +150,17 @@ body, html {
 }
 .hoja-cuaderno::-webkit-scrollbar { display: none; }
 
+/* Margen escolar infinito: no desaparece al hacer scroll hacia abajo */
 .linea-margen-rojo {
     position: absolute;
     top: 0;
     left: 25px;
     width: 1.5px;
     height: 100%;
-    background-color: #ff9e9e; /* Margen escolar */
+    min-height: 1000vh; /* Se extiende infinitamente hacia abajo con el texto */
+    background-color: #ff9e9e; 
+    z-index: 1;
+    pointer-events: none;
 }
 
 .texto-lapiz {
@@ -162,6 +170,8 @@ body, html {
     color: #4e5254; /* Grafito de lápiz */
     text-align: justify;
     white-space: pre-wrap;
+    position: relative;
+    z-index: 2; /* El texto queda perfectamente sobre los renglones y el margen */
 }
 
 /* --- SECCIÓN DEL PASTEL CORREGIDA (CERO GLITCHES EN SAFARI) --- */
@@ -186,7 +196,7 @@ body, html {
 .mensaje-final {
     font-family: 'Caveat', cursive;
     font-size: 2.8rem;
-    color: #FFFFFF;
+    color: #4a4a4a;
     margin-bottom: 40px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
@@ -195,7 +205,7 @@ body, html {
 
 /* Contenedor principal */
 .pastel-contenedor {
-    position: relative;
+    position: relative !important;
     width: 280px;
     height: 260px;
 }
@@ -277,14 +287,14 @@ body, html {
     border-radius: 50%;
 }
 
-/* Rediseño de cobertura superior: Elegante, limpio y SIN sombras malditas */
+/* Rediseño de cobertura superior */
 .decoracion-crema {
     position: absolute;
     top: -6px;
     left: 5%;
     width: 90%;
     height: 14px;
-    background: #ffb3c1; /* Glaseado de fresa superior perfectamente acoplado */
+    background: #ffb3c1;
     border-radius: 50%;
     opacity: 0.9;
     border: 2px solid #ffffff;
@@ -325,41 +335,30 @@ body, html {
     100% { transform: translateX(-50%) scale(1.04) rotate(1.5deg); }
 }
 
-/* --- CORRECCIÓN ULTRA-ESTRICTA PARA OSO Y REGALO --- */
-
-/* Aseguramos que el contenedor sea el eje central */
-.pastel-contenedor {
-    position: relative !important;
-    width: 280px;
-    height: 260px;
-}
-
-/* Forzamos el tamaño pequeño y silueta de las imágenes */
+/* --- POSICIONAMIENTO PARA OSO Y REGALO --- */
 .imagen-borde {
     position: absolute !important;
     bottom: 12px !important;       /* Sentados exactamente al nivel del plato */
-    width: 70px !important;        /* Tamaño pequeño, fino y controlado */
-    height: 70px !important;       /* Evita que Safari los estire hacia abajo */
-    object-fit: contain !important;/* Mantiene la forma original de tu oso/regalo sin deformar */
-    z-index: 10 !important;        /* Los trae al frente del pastel, no atrás */
+    width: 70px !important;        /* Tamaño pequeño y controlado */
+    height: 70px !important;       /* Mantiene proporción */
+    object-fit: contain !important;/* No deforma tus imágenes originales */
+    z-index: 10 !important;        /* Al frente del plato */
     display: block !important;
     filter: drop-shadow(3px 4px 5px rgba(0, 0, 0, 0.15));
     transition: transform 0.3s ease;
 }
 
-/* Posición exacta del Oso (Izquierda) */
 .oso-posicion {
-    left: -35px !important;        /* Lo acomoda justo al ladito del plato izquierdo */
+    left: -35px !important;        /* Lado izquierdo del pastel */
     right: auto !important;
 }
 
-/* Posición exacta del Regalo (Derecha) */
 .regalo-posicion {
-    right: -35px !important;       /* Lo acomoda justo al ladito del plato derecho */
+    right: -35px !important;       /* Lado derecho del pastel */
     left: auto !important;
 }
 
-/* Animación de toque en celular */
 .imagen-borde:active {
     transform: scale(1.1) !important;
 }
+
