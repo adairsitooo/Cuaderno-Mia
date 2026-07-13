@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Configuración del mensaje
-    const textoCarta = "Feliz cumpleaños niña linda, felices 17 años. Gracias por todo lo que compartimos, eres una niña súper especial.";
+    const textoCarta = "Feliz cumpleaños chaparrita, disfruta este festejo con la gente que te ama, recuerda que siempre estaré para ti a pesar de todo, sabes que te quiero mucho, siempre tendrás una parte en mi corazón, que Dios te bendiga en esta nueva etapa y que seas de alegría para la gente que te rodea, disfruta tu tiempo en el colegio, espero seguir compartiendo contigo.                                                               XOXO";
     
     // Selección de elementos
     const btnComenzar = document.getElementById('btn-comenzar');
@@ -48,4 +48,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1600); // Coincide con la duración de la transición CSS
     }
 });
+
 
