@@ -9,7 +9,6 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* Fondo Rosa Pastel Estético con degradado sedoso */
     background: linear-gradient(135deg, #fbcce7 0%, #ffd1dc 100%);
     font-family: Arial, sans-serif;
 }
@@ -23,36 +22,29 @@ body, html {
     align-items: center;
 }
 
-/* --- CUADERNO ULTRA REALISTA EN 3D --- */
+/* --- CUADERNO --- */
 .cuaderno {
     position: absolute;
     width: 90%;
     max-width: 450px;
     height: 85vh;
     background: #fafafa;
-    border-radius: 4px 16px 16px 4px; /* Simula el lomo izquierdo */
-    padding: 25px 20px 25px 45px; /* Más espacio a la izquierda para el espiral */
+    border-radius: 4px 16px 16px 4px;
+    padding: 25px 20px 25px 45px;
     display: flex;
     flex-direction: column;
     z-index: 2;
     transition: transform 1.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
-    
-    /* Efecto 3D de fajo de hojas superpuestas debajo del cuaderno */
-    box-shadow: 
-        -5px 0px 0px #e0e0e0,
-        5px 4px 0px #ffffff,
-        5px 4px 0px #e0e0e0,
-        9px 8px 0px #ffffff,
-        9px 8px 0px #d4d4d4,
-        14px 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: -5px 0px 0px #e0e0e0, 5px 4px 0px #ffffff, 5px 4px 0px #e0e0e0, 9px 8px 0px #ffffff, 9px 8px 0px #d4d4d4, 14px 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .cuaderno.desplazar-arriba {
     transform: translateY(-140vh);
     opacity: 0;
+    pointer-events: none;
 }
 
-/* ESPIRAL METÁLICO REALISTA */
+/* ESPIRAL */
 .espiral-conector {
     position: absolute;
     left: 12px;
@@ -67,12 +59,12 @@ body, html {
 .anillo {
     width: 18px;
     height: 10px;
-    background: linear-gradient(to bottom, #d6d6d6, #ffffff, #9e9e9e); /* Efecto metal cromado */
+    background: linear-gradient(to bottom, #d6d6d6, #ffffff, #9e9e9e);
     border-radius: 5px;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
 }
 
-/* --- TÍTULO DE IMÁGENES DE REVISTA CORREGIDO --- */
+/* TÍTULO REVISTA */
 .titulo-revista {
     display: flex;
     flex-wrap: wrap;
@@ -81,42 +73,34 @@ body, html {
     gap: 4px;
     margin-bottom: 15px;
     padding: 4px;
-    background: transparent; /* Eliminado el cuadro gris de fondo */
-    border-radius: 0;
     width: 100%;
-    max-width: 360px; /* Evita que se desorganice en pantallas compactas */
+    max-width: 360px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.espacio-vacio {
-    width: 10px; /* Separación prudente entre palabras */
-}
-
-/* Contenedores de los recortes de papel individuales */
 .letra-box {
     display: inline-block;
     background: #ffffff;
     padding: 1.5px;
-    box-shadow: 1.5px 2px 4px rgba(0, 0, 0, 0.2); /* Alza la imagen del papel */
+    box-shadow: 1.5px 2px 4px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0,0,0,0.06);
 }
 
 .letra-box img {
     display: block;
-    width: 22px; /* Tamaño ideal y uniforme para que no se desordene */
+    width: 22px;
     height: 28px;
-    object-fit: contain; /* Ajusta armónicamente el contenido sin estirar las letras */
+    object-fit: contain;
 }
 
-/* Rotaciones e inclinaciones aleatorias para realismo físico */
 .r1 { transform: rotate(-5deg) translateY(-1px); }
 .r2 { transform: rotate(4deg) translateY(1px); }
 .r3 { transform: rotate(-3deg) translateY(0px); }
 .r4 { transform: rotate(5deg) translateY(-1px); }
 .r5 { transform: rotate(-4deg) translateY(1px); }
 
-/* --- BOTÓN --- */
+/* BOTÓN */
 #btn-comenzar {
     background: #ff6584;
     color: white;
@@ -131,17 +115,14 @@ body, html {
     font-weight: bold;
     transition: all 0.3s ease;
 }
-#btn-comenzar:hover {
-    background: #ff476c;
-    transform: scale(1.05);
-}
+#btn-comenzar:hover { background: #ff476c; transform: scale(1.05); }
 
-/* --- HOJA DE CUADERNO ESCOLAR CORREGIDA --- */
+/* HOJA CUADERNO */
 .hoja-cuaderno {
     flex: 1;
     position: relative;
     background: linear-gradient(rgba(0, 0, 0, 0) 96%, #cce0f5 96%);
-    background-size: 100% 26px; /* Renglones azules */
+    background-size: 100% 26px;
     border: 1px solid #eaeaea;
     border-radius: 4px;
     padding: 6px 10px 10px 35px;
@@ -150,15 +131,14 @@ body, html {
 }
 .hoja-cuaderno::-webkit-scrollbar { display: none; }
 
-/* Margen escolar infinito: no desaparece al hacer scroll hacia abajo */
 .linea-margen-rojo {
     position: absolute;
     top: 0;
     left: 25px;
     width: 1.5px;
     height: 100%;
-    min-height: 1000vh; /* Se extiende infinitamente hacia abajo con el texto */
-    background-color: #ff9e9e; 
+    min-height: 1000vh;
+    background-color: #ff9e9e;
     z-index: 1;
     pointer-events: none;
 }
@@ -167,14 +147,16 @@ body, html {
     font-family: 'Caveat', cursive;
     font-size: 1.6rem;
     line-height: 26px;
-    color: #4e5254; /* Grafito de lápiz */
+    color: #4e5254;
     text-align: justify;
     white-space: pre-wrap;
     position: relative;
-    z-index: 2; /* El texto queda perfectamente sobre los renglones y el margen */
+    z-index: 2;
 }
 
-/* --- SECCIÓN DEL PASTEL CORREGIDA (CERO GLITCHES EN SAFARI) --- */
+/* SECCIÓN PASTEL */
+.oculto { display: none !important; }
+
 #seccion-pastel {
     position: absolute;
     width: 100%;
@@ -187,10 +169,14 @@ body, html {
     opacity: 0;
     transition: opacity 1.5s ease;
     background: linear-gradient(135deg, #fbcce7 0%, #ffd1dc 100%);
+    pointer-events: none;
 }
 
 #seccion-pastel.mostrar {
+    display: flex !important;
     opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
 }
 
 .mensaje-final {
@@ -200,134 +186,36 @@ body, html {
     margin-bottom: 40px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-    z-index: 10;
 }
 
-/* Contenedor principal */
-.pastel-contenedor {
-    position: relative !important;
-    width: 280px;
-    height: 260px;
-}
+.pastel-contenedor { position: relative !important; width: 280px; height: 260px; }
 
-/* Plato de Plata */
 .plato {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 280px;
-    height: 35px;
-    background: linear-gradient(to bottom, #f0f0f0, #cccccc);
-    border-radius: 50%;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-    z-index: 1;
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+    width: 280px; height: 35px; background: linear-gradient(to bottom, #f0f0f0, #cccccc);
+    border-radius: 50%; box-shadow: 0 15px 30px rgba(0,0,0,0.12); z-index: 1;
 }
 
-/* --- PISO INFERIOR (BASE) --- */
-.piso-base {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 220px;
-    height: 90px;
-    z-index: 2;
-}
-.cuerpo-abajo {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #ff9eb5, #f24e75, #c92c51);
-    border-radius: 0 0 110px 110px / 0 0 25px 25px;
-    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.1);
-}
-.tapa-abajo {
-    position: absolute;
-    top: -15px;
-    width: 100%;
-    height: 30px;
-    background: #ffc4d2;
-    border-radius: 50%;
-}
-.goteo-abajo {
-    position: absolute;
-    top: -5px;
-    width: 100%;
-    height: 18px;
-    background: #ffffff;
-    border-radius: 50%;
-    opacity: 0.8;
-}
+.piso-base { position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); width: 220px; height: 90px; z-index: 2; }
+.cuerpo-abajo { width: 100%; height: 100%; background: linear-gradient(to right, #ff9eb5, #f24e75, #c92c51); border-radius: 0 0 110px 110px / 0 0 25px 25px; }
+.tapa-abajo { position: absolute; top: -15px; width: 100%; height: 30px; background: #ffc4d2; border-radius: 50%; }
+.goteo-abajo { position: absolute; top: -5px; width: 100%; height: 18px; background: #ffffff; border-radius: 50%; opacity: 0.8; }
 
-/* --- PISO SUPERIOR (ALTO) --- */
-.piso-alto {
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 75px;
-    z-index: 4;
-}
-.cuerpo-arriba {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #ffffff, #fff0f3, #ffe3e8);
-    border-radius: 0 0 75px 75px / 0 0 20px 20px;
-    box-shadow: inset 0 -8px 12px rgba(0,0,0,0.05), 0 5px 15px rgba(0,0,0,0.05);
-}
-.tapa-arriba {
-    position: absolute;
-    top: -12px;
-    width: 100%;
-    height: 24px;
-    background: #ffffff;
-    border-radius: 50%;
-}
+.piso-alto { position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); width: 150px; height: 75px; z-index: 4; }
+.cuerpo-arriba { width: 100%; height: 100%; background: linear-gradient(to right, #ffffff, #fff0f3, #ffe3e8); border-radius: 0 0 75px 75px / 0 0 20px 20px; }
+.tapa-arriba { position: absolute; top: -12px; width: 100%; height: 24px; background: #ffffff; border-radius: 50%; }
+.decoracion-crema { position: absolute; top: -6px; left: 5%; width: 90%; height: 14px; background: #ffb3c1; border-radius: 50%; opacity: 0.9; border: 2px solid #ffffff; }
 
-/* Rediseño de cobertura superior */
-.decoracion-crema {
-    position: absolute;
-    top: -6px;
-    left: 5%;
-    width: 90%;
-    height: 14px;
-    background: #ffb3c1;
-    border-radius: 50%;
-    opacity: 0.9;
-    border: 2px solid #ffffff;
-}
-
-/* --- VELA Y FLAMA --- */
 .vela-nueva {
-    position: absolute;
-    bottom: 165px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 50px;
-    background: repeating-linear-gradient(45deg, #4da6ff, #4da6ff 6px, #ffffff 6px, #ffffff 12px);
-    border-radius: 3px;
-    z-index: 10;
-    box-shadow: 2px 3px 6px rgba(0,0,0,0.1);
+    position: absolute; bottom: 165px; left: 50%; transform: translateX(-50%);
+    width: 10px; height: 50px; background: repeating-linear-gradient(45deg, #4da6ff, #4da6ff 6px, #ffffff 6px, #ffffff 12px);
+    border-radius: 3px; z-index: 10;
 }
 
 .flama-nueva {
-    position: absolute;
-    top: -26px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 14px;
-    height: 26px;
-    background: linear-gradient(to top, #ff4500, #ffcc00, #ffffff);
-    border-radius: 50% 50% 35% 35%;
-    box-shadow: 
-        0 0 15px #ffaa00, 
-        0 0 30px #ff4500,
-        0 0 40px rgba(255,170,0,0.3);
-    animation: balanceoFlama 0.15s infinite alternate;
+    position: absolute; top: -26px; left: 50%; transform: translateX(-50%);
+    width: 14px; height: 26px; background: linear-gradient(to top, #ff4500, #ffcc00, #ffffff);
+    border-radius: 50% 50% 35% 35%; animation: balanceoFlama 0.15s infinite alternate;
 }
 
 @keyframes balanceoFlama {
@@ -335,30 +223,14 @@ body, html {
     100% { transform: translateX(-50%) scale(1.04) rotate(1.5deg); }
 }
 
-/* --- POSICIONAMIENTO PARA OSO Y REGALO --- */
 .imagen-borde {
-    position: absolute !important;
-    bottom: 12px !important;       /* Sentados exactamente al nivel del plato */
-    width: 70px !important;        /* Tamaño pequeño y controlado */
-    height: 70px !important;       /* Mantiene proporción */
-    object-fit: contain !important;/* No deforma tus imágenes originales */
-    z-index: 10 !important;        /* Al frente del plato */
-    display: block !important;
-    filter: drop-shadow(3px 4px 5px rgba(0, 0, 0, 0.15));
+    position: absolute !important; bottom: 12px !important; width: 70px !important; height: 70px !important;
+    object-fit: contain !important; z-index: 10 !important; filter: drop-shadow(3px 4px 5px rgba(0, 0, 0, 0.15));
     transition: transform 0.3s ease;
 }
 
-.oso-posicion {
-    left: -35px !important;        /* Lado izquierdo del pastel */
-    right: auto !important;
-}
+.oso-posicion { left: -35px !important; }
+.regalo-posicion { right: -35px !important; }
+.imagen-borde:active { transform: scale(1.1) !important; }
 
-.regalo-posicion {
-    right: -35px !important;       /* Lado derecho del pastel */
-    left: auto !important;
-}
-
-.imagen-borde:active {
-    transform: scale(1.1) !important;
-}
 
